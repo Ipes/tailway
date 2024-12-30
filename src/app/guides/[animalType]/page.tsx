@@ -1,42 +1,43 @@
+// src/app/guides/[animalType]/page.tsx
 'use client'
 
 import React from 'react'
 import { AlertTriangle, ArrowLeft, Info, CheckCircle } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
+import Mermaid from '@/components/ui/mermaid'
+import { getAnimalGuideContent } from '@/config/animalTypes'
+import { notFound } from 'next/navigation'
 
-interface RescueGuideProps {
-  params: {
+interface PageProps {
+  params: Promise<{
     animalType: string
-  }
+  }>
 }
 
-export default function RescueGuidePage({ params }: RescueGuideProps) {
-  // Safely access and capitalize the animal type
-  const animalType = params?.animalType || 'animal'
-  const capitalizedAnimalType = animalType.charAt(0).toUpperCase() + animalType.slice(1)
+export default function RescueGuidePage({ params: paramsPromise }: PageProps) {
+  // Unwrap the params using React.use()
+  const params = React.use(paramsPromise);
+  
+  // Add console logs for debugging
+  console.log('URL params:', params);
+  console.log('Animal type:', params?.animalType);
 
-  // This would later come from an API/database
-  const guideData = {
-    title: `Helping a ${capitalizedAnimalType} in Distress`,
-    description: `Step-by-step guide for safely assisting a ${animalType} in need`,
-    steps: [
-      {
-        id: 1,
-        title: 'Assess the Situation',
-        description: `Before approaching, observe the ${animalType}'s behavior from a safe distance:`,
-        checkPoints: [
-          'Check for signs of aggression',
-          'Look for visible injuries',
-          'Note the surrounding environment'
-        ]
-      }
-    ],
-    safetyTips: [
-      'Approach slowly and calmly',
-      'Avoid direct eye contact',
-      'Keep your movements predictable'
-    ]
+  // Check if params and animalType exist
+  if (!params?.animalType) {
+    console.log('No animal type found in params');
+    notFound();
+  }
+
+  const guideData = getAnimalGuideContent(params.animalType);
+  
+  // Log the guide data
+  console.log('Guide data:', guideData);
+  
+  // If the animal type is not supported or no guide data is found, show 404
+  if (!guideData) {
+    console.log('No guide data found for animal type:', params.animalType);
+    notFound();
   }
 
   return (
@@ -67,10 +68,10 @@ export default function RescueGuidePage({ params }: RescueGuideProps) {
         </div>
       </div>
 
-      {/* Step by Step Guide */}
+      {/* Main Content */}
       <div className="max-w-3xl mx-auto px-4 py-8">
         <div className="space-y-8">
-          {/* Step 1 */}
+          {/* Steps */}
           {guideData.steps.map((step) => (
             <Card key={step.id}>
               <CardContent className="p-6">
@@ -112,8 +113,8 @@ export default function RescueGuidePage({ params }: RescueGuideProps) {
           <Card>
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold mb-4 text-gray-800">Decision Flow Chart</h3>
-              <div className="bg-gray-100 p-4 rounded">
-                [Mermaid Flow Chart Placeholder - To be implemented]
+              <div className="bg-white p-4 rounded">
+                <Mermaid chart={guideData.flowChart} />
               </div>
             </CardContent>
           </Card>

@@ -33,14 +33,14 @@ export default function HomePage() {
             <h1 className="text-4xl font-bold mb-6">Found an animal in distress?</h1>
             <p className="text-xl mb-8">Get immediate guidance on how to help</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold flex items-center justify-center">
-                <AlertTriangle className="mr-2" />
-                Emergency Guide
-              </button>
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center">
-                <Search className="mr-2" />
-                Find Help Nearby
-              </button>
+            <Link href="/guides" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold flex items-center justify-center hover:bg-gray-50">
+              <AlertTriangle className="mr-2" />
+              Emergency Guide
+            </Link>
+            <Link href="/directory" className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center hover:bg-blue-600">
+              <Search className="mr-2" />
+              Find Help Nearby
+            </Link>
             </div>
           </div>
         </div>
