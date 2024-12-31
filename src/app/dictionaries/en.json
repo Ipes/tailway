@@ -1,0 +1,49 @@
+{
+    "common": {
+      "loading": "Loading...",
+      "error": "Error",
+      "noResults": "No results found. Try adjusting your search or filters."
+    },
+    "directory": {
+      "title": "Find Animal Help Near You",
+      "subtitle": "Locate veterinarians, shelters, and rescue services in your area",
+      "search": {
+        "placeholder": "Search by service or location...",
+        "filters": "Filters"
+      },
+      "filters": {
+        "title": "Filter Results",
+        "serviceType": "Service Type",
+        "distance": "Distance",
+        "distanceOptions": {
+          "5": "Within 5 km",
+          "10": "Within 10 km",
+          "20": "Within 20 km"
+        }
+      },
+      "serviceTypes": {
+        "veterinaryClinic": "Veterinary Clinic",
+        "emergencyCare": "Emergency Care",
+        "animalShelter": "Animal Shelter",
+        "wildlifeRescue": "Wildlife Rescue",
+        "rehabilitation": "Rehabilitation"
+      },
+      "listing": {
+        "emergency": "24/7 Emergency"
+      }
+    },
+    "guides": {
+      "title": "Animal Emergency Guides",
+      "subtitle": "Step-by-step guides for helping animals in distress",
+      "backToGuides": "Back to Guides",
+      "emergency": {
+        "warning": "If the animal is severely injured or aggressive, call professional help immediately"
+      },
+      "sections": {
+        "safetyTips": "Safety Tips",
+        "steps": "Steps",
+        "flowChart": "Decision Flow Chart"
+      }
+    }
+  }
+  

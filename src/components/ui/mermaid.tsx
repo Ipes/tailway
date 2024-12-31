@@ -1,6 +1,7 @@
+// src/components/ui/mermaid.tsx
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import mermaid from 'mermaid'
 
 interface MermaidProps {
@@ -10,25 +11,32 @@ interface MermaidProps {
 
 export const Mermaid: React.FC<MermaidProps> = ({ chart, className = '' }) => {
   const elementRef = useRef<HTMLDivElement>(null)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    // Initialize mermaid with default config
+    setIsClient(true)
+    
     mermaid.initialize({
       startOnLoad: true,
       theme: 'default',
       securityLevel: 'loose',
       htmlLabels: true
     })
+  }, [])
 
-    // Only render if we have a chart and the element exists
-    if (chart && elementRef.current) {
+  useEffect(() => {
+    if (isClient && chart && elementRef.current) {
       mermaid.render('mermaid-svg', chart).then(({ svg }) => {
         if (elementRef.current) {
           elementRef.current.innerHTML = svg
         }
       })
     }
-  }, [chart])
+  }, [chart, isClient])
+
+  if (!isClient) {
+    return <div className={className}>Loading diagram...</div>
+  }
 
   return (
     <div ref={elementRef} className={`mermaid-chart ${className}`}>

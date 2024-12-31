@@ -1,0 +1,48 @@
+{
+    "common": {
+      "loading": "Laden...",
+      "error": "Fout",
+      "noResults": "Geen resultaten gevonden. Pas je zoekopdracht of filters aan."
+    },
+    "directory": {
+      "title": "Vind Dierenhulp in je Buurt",
+      "subtitle": "Zoek dierenartsen, asielen en reddingsdiensten in jouw omgeving",
+      "search": {
+        "placeholder": "Zoek op dienst of locatie...",
+        "filters": "Filters"
+      },
+      "filters": {
+        "title": "Filter Resultaten",
+        "serviceType": "Type Dienst",
+        "distance": "Afstand",
+        "distanceOptions": {
+          "5": "Binnen 5 km",
+          "10": "Binnen 10 km",
+          "20": "Binnen 20 km"
+        }
+      },
+      "serviceTypes": {
+        "veterinaryClinic": "Dierenkliniek",
+        "emergencyCare": "Spoedzorg",
+        "animalShelter": "Dierenasiel",
+        "wildlifeRescue": "Wildopvang",
+        "rehabilitation": "Revalidatie"
+      },
+      "listing": {
+        "emergency": "24/7 Spoeddienst"
+      }
+    },
+    "guides": {
+      "title": "Dieren Noodgidsen",
+      "subtitle": "Stap-voor-stap handleidingen voor het helpen van dieren in nood",
+      "backToGuides": "Terug naar Gidsen",
+      "emergency": {
+        "warning": "Als het dier ernstig gewond of agressief is, bel dan onmiddellijk professionele hulp"
+      },
+      "sections": {
+        "safetyTips": "Veiligheidstips",
+        "steps": "Stappen",
+        "flowChart": "Beslissingsdiagram"
+      }
+    }
+  }

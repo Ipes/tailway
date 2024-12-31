@@ -1,63 +1,84 @@
 // src/app/guides/page.tsx
-import React from 'react'
+'use client'
+
+import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { AlertTriangle, ArrowRight } from 'lucide-react'
+import { fetchFromAPI } from '@/lib/api'
+
+interface Guide {
+  id: number;
+  title: string;
+  animalType: string;
+  description: any[]; // Using any for now, can be typed properly later
+}
 
 export default function GuidesPage() {
-  const animalGuides = [
-    {
-      type: 'dog',
-      title: 'Dog Rescue Guide',
-      description: 'Help dogs in distress safely and effectively'
-    },
-    {
-      type: 'cat',
-      title: 'Cat Rescue Guide',
-      description: 'Guide for helping cats in emergency situations'
-    },
-    {
-      type: 'bird',
-      title: 'Bird Rescue Guide',
-      description: 'Assist birds in need with proper care and safety'
+  const [guides, setGuides] = useState<Guide[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchGuides() {
+      try {
+        const response = await fetchFromAPI('animal-guides');
+        if (response.data) {
+          setGuides(response.data);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch guides');
+      } finally {
+        setLoading(false);
+      }
     }
-  ]
+
+    fetchGuides();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-gray-600">Loading guides...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-red-600">Error: {error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl font-bold mb-4">Emergency Animal Guides</h1>
-          <p className="text-xl">Step-by-step instructions for helping animals in distress</p>
+          <h1 className="text-3xl font-bold mb-4">Animal Emergency Guides</h1>
+          <p className="text-xl">Step-by-step guides for helping animals in distress</p>
         </div>
       </div>
 
-      {/* Emergency Notice */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
-          <div className="flex items-center">
-            <AlertTriangle className="text-red-500 mr-2" />
-            <p className="font-semibold text-red-700">
-              If an animal is severely injured or aggressive, contact professional help immediately
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Guide Cards */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Guides Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {animalGuides.map((guide) => (
-            <Link key={guide.type} href={`/guides/${guide.type}`}>
-              <Card className="h-full hover:shadow-md transition-shadow">
+          {guides.map((guide) => (
+            <Link key={guide.id} href={`/guides/${guide.animalType}`}>
+              <Card className="hover:shadow-lg transition-shadow duration-200">
                 <CardHeader>
                   <CardTitle>{guide.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{guide.description}</p>
-                  <div className="text-blue-600 font-semibold flex items-center">
-                    View Guide <ArrowRight className="ml-2" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-600">View Guide</span>
+                    <ArrowRight className="text-blue-600" />
                   </div>
                 </CardContent>
               </Card>

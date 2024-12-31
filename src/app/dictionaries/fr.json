@@ -1,0 +1,48 @@
+{
+    "common": {
+      "loading": "Chargement...",
+      "error": "Erreur",
+      "noResults": "Aucun résultat trouvé. Essayez d'ajuster votre recherche ou vos filtres."
+    },
+    "directory": {
+      "title": "Trouvez de l'Aide Animale Près de Chez Vous",
+      "subtitle": "Localisez les vétérinaires, refuges et services de secours dans votre région",
+      "search": {
+        "placeholder": "Rechercher par service ou lieu...",
+        "filters": "Filtres"
+      },
+      "filters": {
+        "title": "Filtrer les Résultats",
+        "serviceType": "Type de Service",
+        "distance": "Distance",
+        "distanceOptions": {
+          "5": "Dans un rayon de 5 km",
+          "10": "Dans un rayon de 10 km",
+          "20": "Dans un rayon de 20 km"
+        }
+      },
+      "serviceTypes": {
+        "veterinaryClinic": "Clinique Vétérinaire",
+        "emergencyCare": "Soins d'Urgence",
+        "animalShelter": "Refuge Animalier",
+        "wildlifeRescue": "Sauvetage Faune Sauvage",
+        "rehabilitation": "Réhabilitation"
+      },
+      "listing": {
+        "emergency": "Urgences 24/7"
+      }
+    },
+    "guides": {
+      "title": "Guides d'Urgence Animale",
+      "subtitle": "Guides étape par étape pour aider les animaux en détresse",
+      "backToGuides": "Retour aux Guides",
+      "emergency": {
+        "warning": "Si l'animal est gravement blessé ou agressif, appelez immédiatement une aide professionnelle"
+      },
+      "sections": {
+        "safetyTips": "Conseils de Sécurité",
+        "steps": "Étapes",
+        "flowChart": "Diagramme de Décision"
+      }
+    }
+  }
