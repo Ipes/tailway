@@ -1,4 +1,3 @@
-// src/app/guides/page.tsx
 'use client'
 
 import React, { useState, useEffect } from 'react'
@@ -6,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { fetchFromAPI } from '@/lib/api'
+import { useParams } from 'next/navigation'
 
 interface Guide {
   id: number;
@@ -15,6 +15,7 @@ interface Guide {
 }
 
 export default function GuidesPage() {
+  const { lang } = useParams()
   const [guides, setGuides] = useState<Guide[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -22,7 +23,7 @@ export default function GuidesPage() {
   useEffect(() => {
     async function fetchGuides() {
       try {
-        const response = await fetchFromAPI('animal-guides');
+        const response = await fetchFromAPI(`animal-guides?locale=${lang}`);
         if (response.data) {
           setGuides(response.data);
         }
@@ -34,7 +35,7 @@ export default function GuidesPage() {
     }
 
     fetchGuides();
-  }, []);
+  }, [lang]);
 
   if (loading) {
     return (
@@ -70,7 +71,7 @@ export default function GuidesPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {guides.map((guide) => (
-            <Link key={guide.id} href={`/guides/${guide.animalType}`}>
+            <Link key={guide.id} href={`/${lang}/guides/${guide.animalType}`}>
               <Card className="hover:shadow-lg transition-shadow duration-200">
                 <CardHeader>
                   <CardTitle>{guide.title}</CardTitle>

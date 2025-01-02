@@ -1,4 +1,3 @@
-// src/app/guides/[animalType]/page.tsx
 'use client'
 
 import React, { useState, useEffect } from 'react'
@@ -7,8 +6,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import Mermaid from '@/components/ui/mermaid'
 import { getAnimalGuide } from '@/lib/api'
-import { notFound } from 'next/navigation'
-import { useParams } from 'next/navigation'
+import { notFound, useParams } from 'next/navigation'
 
 interface RichTextNode {
   type: string;
@@ -45,6 +43,7 @@ function extractTextFromRichText(nodes: RichTextNode[]): string {
 
 export default function RescueGuidePage() {
   const params = useParams();
+  const { lang, animalType } = params;
   const [guideData, setGuideData] = useState<GuideData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -52,19 +51,19 @@ export default function RescueGuidePage() {
   useEffect(() => {
     async function fetchGuide() {
       try {
-        if (!params?.animalType) {
+        if (!animalType) {
           throw new Error('No animal type specified');
         }
 
-        const animalType = Array.isArray(params.animalType) 
-          ? params.animalType[0] 
-          : params.animalType;
+        const animalTypeValue = Array.isArray(animalType) 
+          ? animalType[0] 
+          : animalType;
 
-        console.log('Fetching guide for animal type:', animalType);
-        const response = await getAnimalGuide(animalType);
+        console.log('Fetching guide for animal type:', animalTypeValue);
+        const response = await getAnimalGuide(animalTypeValue, lang as string);
 
         if (!response.data || response.data.length === 0) {
-          console.log('No guide found for:', animalType);
+          console.log('No guide found for:', animalTypeValue);
           notFound();
           return;
         }
@@ -81,7 +80,7 @@ export default function RescueGuidePage() {
     }
 
     fetchGuide();
-  }, [params?.animalType]);
+  }, [animalType, lang]);
 
   if (loading) {
     return (
@@ -108,7 +107,7 @@ export default function RescueGuidePage() {
       <div className="bg-blue-600 text-white">
         <div className="max-w-3xl mx-auto px-4 py-8">
           <Link 
-            href="/guides" 
+            href={`/${lang}/guides`}
             className="flex items-center text-white mb-4 hover:text-blue-100"
           >
             <ArrowLeft className="mr-2" /> Back to Guides
