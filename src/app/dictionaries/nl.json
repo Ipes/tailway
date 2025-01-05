@@ -1,48 +1,92 @@
 {
-    "common": {
-      "loading": "Laden...",
-      "error": "Fout",
-      "noResults": "Geen resultaten gevonden. Pas je zoekopdracht of filters aan."
+  "common": {
+    "loading": "Laden...",
+    "error": "Fout",
+    "noResults": "Geen resultaten gevonden. Probeer je zoekopdracht of filters aan te passen."
+  },
+  "directory": {
+    "title": "Vind Dierenhulp Bij Jou In De Buurt",
+    "subtitle": "Vind dierenartsen, opvangcentra en reddingsdiensten in jouw omgeving",
+    "search": {
+      "placeholder": "Zoek op dienst of locatie...",
+      "filters": "Filters"
     },
-    "directory": {
-      "title": "Vind Dierenhulp in je Buurt",
-      "subtitle": "Zoek dierenartsen, asielen en reddingsdiensten in jouw omgeving",
-      "search": {
-        "placeholder": "Zoek op dienst of locatie...",
-        "filters": "Filters"
-      },
-      "filters": {
-        "title": "Filter Resultaten",
-        "serviceType": "Type Dienst",
-        "distance": "Afstand",
-        "distanceOptions": {
-          "5": "Binnen 5 km",
-          "10": "Binnen 10 km",
-          "20": "Binnen 20 km"
-        }
-      },
-      "serviceTypes": {
-        "veterinaryClinic": "Dierenkliniek",
-        "emergencyCare": "Spoedzorg",
-        "animalShelter": "Dierenasiel",
-        "wildlifeRescue": "Wildopvang",
-        "rehabilitation": "Revalidatie"
-      },
-      "listing": {
-        "emergency": "24/7 Spoeddienst"
+    "filters": {
+      "title": "Filter Resultaten",
+      "serviceType": "Soort Dienst",
+      "distance": "Afstand",
+      "distanceOptions": {
+        "5": "Binnen 5 km",
+        "10": "Binnen 10 km",
+        "20": "Binnen 20 km"
       }
     },
-    "guides": {
-      "title": "Dieren Noodgidsen",
-      "subtitle": "Stap-voor-stap handleidingen voor het helpen van dieren in nood",
-      "backToGuides": "Terug naar Gidsen",
-      "emergency": {
-        "warning": "Als het dier ernstig gewond of agressief is, bel dan onmiddellijk professionele hulp"
+    "serviceTypes": {
+      "veterinaryClinic": "Dierenkliniek",
+      "emergencyCare": "Spoedeisende Hulp",
+      "animalShelter": "Dierenasiel",
+      "wildlifeRescue": "Redding van Wilde Dieren",
+      "rehabilitation": "Revalidatie"
+    },
+    "listing": {
+      "emergency": "24/7 Spoedgeval"
+    }
+  },
+  "guides": {
+    "title": "Gidsen voor Dierennoodgevallen",
+    "subtitle": "Stapsgewijze handleidingen voor het helpen van dieren in nood",
+    "backToGuides": "Terug naar Gidsen",
+    "emergency": {
+      "warning": "Als het dier ernstig gewond of agressief is, bel dan onmiddellijk professionele hulp"
+    },
+    "sections": {
+      "safetyTips": "Veiligheidstips",
+      "steps": "Stappen",
+      "flowChart": "Beslissingsstroomschema"
+    },
+    "viewGuide": "View Guide"
+  },
+  "home": {
+    "hero": {
+      "title": "Een dier in nood gevonden?",
+      "subtitle": "Zo kan je helpen!",
+      "emergencyButton": "Noodhandleiding",
+      "findHelpButton": "Vind Hulp In De Buurt"
+    },
+    "nav": {
+      "guides": "Handleidingen",
+      "directory": "Adresboek",
+      "blog": "Blog"
+    },
+    "quickAccess": {
+      "title": "Meest gebruikte handleidingen",
+      "guides": {
+        "dogs": {
+          "title": "Honden",
+          "description": "Handleiding voor het helpen van honden in nood"
+        },
+        "cats": {
+          "title": "Katten",
+          "description": "Handleiding voor het helpen van katten in nood"
+        },
+        "birds": {
+          "title": "Vogels",
+          "description": "Handleiding voor het helpen van vogels in nood"
+        }
+      }
+    },
+    "emergency": {
+      "title": "Noodcontacten",
+      "veterinary": {
+        "title": "Dierenarts Spoedgeval",
+        "description": "24/7 spoedeisende veterinaire diensten in jouw omgeving",
+        "button": "Vind dichtstbijzijnde kliniek"
       },
-      "sections": {
-        "safetyTips": "Veiligheidstips",
-        "steps": "Stappen",
-        "flowChart": "Beslissingsdiagram"
+      "wildlife": {
+        "title": "Reactie op Wilde Dieren",
+        "description": "Professionele redding en revalidatie van wilde dieren",
+        "button": "Neem contact op met het reddingsteam"
       }
     }
   }
+}

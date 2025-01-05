@@ -1,48 +1,92 @@
 {
-    "common": {
-      "loading": "Chargement...",
-      "error": "Erreur",
-      "noResults": "Aucun résultat trouvé. Essayez d'ajuster votre recherche ou vos filtres."
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "noResults": "Aucun résultat trouvé. Essayez d'ajuster votre recherche ou vos filtres."
+  },
+  "directory": {
+    "title": "Trouver de l'Aide pour Animaux Près de Chez Vous",
+    "subtitle": "Localisez les vétérinaires, les refuges et les services de secours dans votre région",
+    "search": {
+      "placeholder": "Rechercher par service ou emplacement...",
+      "filters": "Filtres"
     },
-    "directory": {
-      "title": "Trouvez de l'Aide Animale Près de Chez Vous",
-      "subtitle": "Localisez les vétérinaires, refuges et services de secours dans votre région",
-      "search": {
-        "placeholder": "Rechercher par service ou lieu...",
-        "filters": "Filtres"
-      },
-      "filters": {
-        "title": "Filtrer les Résultats",
-        "serviceType": "Type de Service",
-        "distance": "Distance",
-        "distanceOptions": {
-          "5": "Dans un rayon de 5 km",
-          "10": "Dans un rayon de 10 km",
-          "20": "Dans un rayon de 20 km"
-        }
-      },
-      "serviceTypes": {
-        "veterinaryClinic": "Clinique Vétérinaire",
-        "emergencyCare": "Soins d'Urgence",
-        "animalShelter": "Refuge Animalier",
-        "wildlifeRescue": "Sauvetage Faune Sauvage",
-        "rehabilitation": "Réhabilitation"
-      },
-      "listing": {
-        "emergency": "Urgences 24/7"
+    "filters": {
+      "title": "Filtrer les Résultats",
+      "serviceType": "Type de Service",
+      "distance": "Distance",
+      "distanceOptions": {
+        "5": "À moins de 5 km",
+        "10": "À moins de 10 km",
+        "20": "À moins de 20 km"
       }
     },
-    "guides": {
-      "title": "Guides d'Urgence Animale",
-      "subtitle": "Guides étape par étape pour aider les animaux en détresse",
-      "backToGuides": "Retour aux Guides",
-      "emergency": {
-        "warning": "Si l'animal est gravement blessé ou agressif, appelez immédiatement une aide professionnelle"
+    "serviceTypes": {
+      "veterinaryClinic": "Clinique Vétérinaire",
+      "emergencyCare": "Soins d'Urgence",
+      "animalShelter": "Refuge pour Animaux",
+      "wildlifeRescue": "Sauvetage de la Faune",
+      "rehabilitation": "Réhabilitation"
+    },
+    "listing": {
+      "emergency": "Urgence 24h/24 et 7j/7"
+    }
+  },
+  "guides": {
+    "title": "Guides d'Urgence Animale",
+    "subtitle": "Guides étape par étape pour aider les animaux en détresse",
+    "backToGuides": "Retour aux Guides",
+    "emergency": {
+      "warning": "Si l'animal est gravement blessé ou agressif, appelez immédiatement une aide professionnelle"
+    },
+    "sections": {
+      "safetyTips": "Conseils de Sécurité",
+      "steps": "Étapes",
+      "flowChart": "Organigramme de Décision"
+    },
+    "viewGuide": "View Guide"
+  },
+  "home": {
+    "hero": {
+      "title": "Vous avez trouvé un animal en détresse?",
+      "subtitle": "Voici comment vous pouvez aider!",
+      "emergencyButton": "Guide d'Urgence",
+      "findHelpButton": "Trouver de l'Aide à Proximité"
+    },
+    "nav": {
+      "guides": "Guides",
+      "directory": "Annuaire",
+      "blog": "Blog"
+    },
+    "quickAccess": {
+      "title": "Guides Animaliers Courants",
+      "guides": {
+        "dogs": {
+          "title": "Chiens",
+          "description": "Guide rapide pour aider les chiens en détresse"
+        },
+        "cats": {
+          "title": "Chats",
+          "description": "Guide rapide pour aider les chats en détresse"
+        },
+        "birds": {
+          "title": "Oiseaux",
+          "description": "Guide rapide pour aider les oiseaux en détresse"
+        }
+      }
+    },
+    "emergency": {
+      "title": "Contacts d'Urgence",
+      "veterinary": {
+        "title": "Urgence Vétérinaire",
+        "description": "Services vétérinaires d'urgence 24h/24 et 7j/7 dans votre région",
+        "button": "Trouver la clinique la plus proche"
       },
-      "sections": {
-        "safetyTips": "Conseils de Sécurité",
-        "steps": "Étapes",
-        "flowChart": "Diagramme de Décision"
+      "wildlife": {
+        "title": "Intervention Faune Sauvage",
+        "description": "Sauvetage et réhabilitation professionnels de la faune",
+        "button": "Contacter l'équipe de secours"
       }
     }
   }
+}

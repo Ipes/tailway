@@ -43,7 +43,50 @@
         "safetyTips": "Safety Tips",
         "steps": "Steps",
         "flowChart": "Decision Flow Chart"
+      },
+      "viewGuide": "View Guide"
+    },
+    "home": {
+      "hero": {
+        "title": "Found an animal in distress?",
+        "subtitle": "This is how you can help!",
+        "emergencyButton": "Emergency Guide",
+        "findHelpButton": "Find Help Nearby"
+      },
+      "nav": {
+        "guides": "Guides",
+        "directory": "Directory",
+        "blog": "Blog"
+      },
+      "quickAccess": {
+        "title": "Common Animal Guides",
+        "guides": {
+          "dogs": {
+            "title": "Dogs",
+            "description": "Quick guide for helping dogs in distress"
+          },
+          "cats": {
+            "title": "Cats",
+            "description": "Quick guide for helping cats in distress"
+          },
+          "birds": {
+            "title": "Birds",
+            "description": "Quick guide for helping birds in distress"
+          }
+        }
+      },
+      "emergency": {
+        "title": "Emergency Contacts",
+        "veterinary": {
+          "title": "Veterinary Emergency",
+          "description": "24/7 emergency veterinary services in your area",
+          "button": "Find nearest clinic"
+        },
+        "wildlife": {
+          "title": "Wildlife Response",
+          "description": "Professional wildlife rescue and rehabilitation",
+          "button": "Contact rescue team"
+        }
       }
     }
   }
-  
