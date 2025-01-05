@@ -50,7 +50,7 @@
     "hero": {
       "title": "Vous avez trouvé un animal en détresse?",
       "subtitle": "Voici comment vous pouvez aider!",
-      "emergencyButton": "Guide d'Urgence",
+      "emergencyButton": "Guides d'Urgence",
       "findHelpButton": "Trouver de l'Aide à Proximité"
     },
     "nav": {
