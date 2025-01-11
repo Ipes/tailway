@@ -2,17 +2,21 @@
 import { getDictionary } from '@/lib/dictionary'
 import DirectoryPage from '@/components/DirectoryPage'
 import { Locale } from '@/config/i18n.config'
-import { use } from 'react'
 
-export default function Page({
+type SearchParamsType = { [key: string]: string | string[] | undefined }
+
+export default async function Page({
   params,
   searchParams,
 }: {
   params: Promise<{ lang: Locale }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<SearchParamsType>;
 }) {
-  const { lang } = use(params);
-  const dict = use(getDictionary(lang))
+  // Await both promises
+  const { lang } = await params;
+  const resolvedSearchParams = await searchParams;
+  
+  const dict = await getDictionary(lang)
   
   return (
     <DirectoryPage 
