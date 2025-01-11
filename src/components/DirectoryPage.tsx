@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { Search, MapPin, Phone, Mail, Filter } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { getDirectoryListings } from '@/lib/api'
+import { Locale } from '@/config/i18n.config'
 
 interface DirectoryPageProps {
   dict: {
@@ -34,7 +35,8 @@ interface DirectoryPageProps {
         emergency: string;
       };
     };
-  }
+  };
+  lang: Locale;  // Changed from string to Locale
 }
 
 interface Coordinates {
