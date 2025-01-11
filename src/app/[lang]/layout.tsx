@@ -3,14 +3,15 @@ import type { Metadata } from 'next'
 
 interface Props {
   children: React.ReactNode
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
-export async function generateMetadata({ params: { lang } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+  const { lang } = await params
   return {
     title: "Tailway - Animal Emergency Response Guide",
     description: "Immediate guidance for helping animals in distress",
@@ -25,7 +26,14 @@ export async function generateMetadata({ params: { lang } }: Props): Promise<Met
   }
 }
 
-export default function LocaleLayout({ children, params: { lang } }: Props) {
+export default async function LocaleLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode
+  params: Promise<{ lang: Locale }>
+}) {
+  const { lang } = await params
   // Validate that the lang parameter is a supported locale
   if (!i18n.locales.includes(lang as Locale)) {
     return null
