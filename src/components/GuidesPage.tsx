@@ -7,27 +7,30 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { fetchFromAPI } from '@/lib/api'
 
-interface Guide {
-  id: number;
-  title: string;
-  animalType: string;
-  description: any[]; // Using any for now, can be typed properly later
-}
+import { Guide, GuidesPageProps } from '@/types/guide'
 
-interface GuidesPageProps {
-  dict: {
-    common: {
-      loading: string;
-      error: string;
-    };
-    guides: {
-      title: string;
-      subtitle: string;
-      viewGuide: string;
-    };
-  };
-  lang: string;
-}
+// interface Guide {
+//   id: number;
+//   title: string;
+//   animalType: string;
+//   description: any[]; // Using any for now, can be typed properly later
+// }
+
+// interface GuidesPageProps {
+//   dict: {
+//     common: {
+//       loading: string;
+//       error: string;
+//     };
+//     guides: {
+//       title: string;
+//       subtitle: string;
+//       viewGuide: string;
+//     };
+//   };
+//   lang: string;
+// }
+
 
 export default function GuidesPage({ dict, lang }: GuidesPageProps) {
   const [guides, setGuides] = useState<Guide[]>([])
