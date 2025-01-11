@@ -3,27 +3,20 @@ import { getDictionary } from '@/lib/dictionary'
 import DirectoryPage from '@/components/DirectoryPage'
 import { Locale } from '@/config/i18n.config'
 
-type SearchParams = { [key: string]: string | string[] | undefined }
-
-// Use specific type annotations for Next.js 15
-async function Page({
+export default async function Page({
   params,
   searchParams,
 }: {
-  params: { lang: Locale },
-  searchParams: SearchParams,
+  params: Promise<{ lang: Locale }>;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const dict = await getDictionary(params.lang)
+  const { lang } = await params;
+  const dict = await getDictionary(lang)
   
   return (
     <DirectoryPage 
       dict={dict} 
-      lang={params.lang}
+      lang={lang}
     />
   )
 }
-
-// Add type assertion for the page component
-Page.dynamic = 'force-dynamic'
-
-export default Page
