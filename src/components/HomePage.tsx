@@ -66,23 +66,27 @@ export default function HomePage({ dict, lang }: HomePageProps) {
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            <div className="font-bold text-xl text-blue-600">Tailway</div>
-            <div className="flex items-center space-x-4">
-              <Link href={`/${lang}/guides`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
-                {dict.home.nav.guides}
-              </Link>
-              <Link href={`/${lang}/directory`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
-                {dict.home.nav.directory}
-              </Link>
-              <Link href={`/${lang}/blog`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
-                {dict.home.nav.blog}
-              </Link>
-              <div className="pl-4 border-l border-gray-200">
-                <LanguageSwitcher />
-              </div>
+        <div className="flex justify-between items-center">
+          <div className="font-bold text-xl text-blue-600">Tailway</div>
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href={`/${lang}/guides`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
+              {dict.home.nav.guides}
+            </Link>
+            <Link href={`/${lang}/directory`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
+              {dict.home.nav.directory}
+            </Link>
+            <Link href={`/${lang}/blog`} className="px-4 py-2 text-gray-600 hover:text-blue-600">
+              {dict.home.nav.blog}
+            </Link>
+            <div className="pl-4 border-l border-gray-200">
+              <LanguageSwitcher />
             </div>
           </div>
+          {/* Add a visible language switcher for mobile */}
+          <div className="md:hidden">
+            <LanguageSwitcher />
+          </div>
+        </div>
         </div>
       </nav>
 

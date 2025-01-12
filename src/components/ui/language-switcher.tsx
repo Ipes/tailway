@@ -4,7 +4,7 @@
 import { usePathname, useRouter } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { i18n } from '@/config/i18n.config'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Globe } from 'lucide-react'
 
 const LanguageSwitcher = () => {
   const router = useRouter()
@@ -35,14 +35,16 @@ const LanguageSwitcher = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-20 px-2 py-1 text-sm bg-white border rounded hover:bg-gray-50"
+        className="flex items-center justify-between gap-2 w-auto px-3 py-1.5 text-sm bg-white border rounded hover:bg-gray-50"
+        aria-label="Change language"
       >
+        <Globe className="w-4 h-4 text-gray-500" />
         <span className="font-medium">{currentLocale.toUpperCase()}</span>
-        <ChevronDown className="w-4 h-4" />
+        <ChevronDown className="w-4 h-4 text-gray-500" />
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-1 bg-white border rounded shadow-lg">
+        <div className="absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 min-w-[120px]">
           <div className="py-1">
             {i18n.locales.map((locale) => (
               <button
@@ -52,12 +54,13 @@ const LanguageSwitcher = () => {
                   currentLocale === locale ? 'bg-gray-50 font-medium' : ''
                 }`}
               >
-                {locale.toUpperCase()}
+                {locale === 'en' ? 'English' : locale === 'nl' ? 'Nederlands' : 'Français'}
               </button>
             ))}
           </div>
         </div>
       )}
+
     </div>
   )
 }
