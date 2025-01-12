@@ -1,5 +1,7 @@
 import { i18n, type Locale } from '../../config/i18n.config'
 import type { Metadata } from 'next'
+import Navigation from '@/components/ui/navigation'
+import { getDictionary } from '@/lib/dictionary'
 
 interface Props {
   children: React.ReactNode
@@ -39,9 +41,12 @@ export default async function LocaleLayout({
     return null
   }
 
+  // Get dictionary for the current language
+  const dict = await getDictionary(lang as Locale)
+
   return (
     <>
-      {/* You can add language-specific components here, like a language switcher */}
+      <Navigation dict={dict} lang={lang as Locale} />
       {children}
     </>
   )
