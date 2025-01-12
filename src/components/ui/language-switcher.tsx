@@ -39,9 +39,10 @@ const LanguageSwitcher = () => {
         aria-label="Change language"
       >
         <Globe className="w-4 h-4 text-gray-500" />
-        <span className="font-medium">{currentLocale.toUpperCase()}</span>
+        <span className="font-medium text-gray-900">{currentLocale.toUpperCase()}</span>
         <ChevronDown className="w-4 h-4 text-gray-500" />
       </button>
+
 
       {isOpen && (
         <div className="absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 min-w-[120px]">
@@ -51,7 +52,9 @@ const LanguageSwitcher = () => {
                 key={locale}
                 onClick={() => switchLanguage(locale)}
                 className={`block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 ${
-                  currentLocale === locale ? 'bg-gray-50 font-medium' : ''
+                  currentLocale === locale 
+                    ? 'bg-gray-50 font-medium text-blue-600' // Active language
+                    : 'text-gray-900' // Changed from default light text to dark gray
                 }`}
               >
                 {locale === 'en' ? 'English' : locale === 'nl' ? 'Nederlands' : 'Français'}
@@ -60,6 +63,7 @@ const LanguageSwitcher = () => {
           </div>
         </div>
       )}
+
 
     </div>
   )
